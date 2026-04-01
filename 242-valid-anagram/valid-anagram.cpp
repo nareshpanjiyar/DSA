@@ -11,14 +11,10 @@ public:
 
         for(auto N : t){
             mp[N]--;
+            if(mp[N] < 0) return false;
         }
 
-        for(auto n : mp){
-
-            if(n.second != 0){
-                return false;
-            }
-        }
+        
 
         return true;
     }
