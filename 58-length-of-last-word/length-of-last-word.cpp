@@ -1,0 +1,20 @@
+class Solution {
+public:
+    int lengthOfLastWord(string s) {
+
+        int i = s.size() - 1;
+
+        // skip spaces
+        while(i >= 0 && s[i] == ' ') i--;
+
+        int len = 0;
+
+        // count last word
+        while(i >= 0 && s[i] != ' '){
+            len++;
+            i--;
+        }
+
+        return len;
+    }
+};
