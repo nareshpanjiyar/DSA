@@ -3,26 +3,25 @@ public:
     vector<int> topKFrequent(vector<int>& nums, int k) {
 
         unordered_map<int,int> mp;
-        for(auto num : nums){
-            mp[num]++;
-        }
+        for(auto &N : nums) mp[N]++;
 
-        priority_queue<pair<int,int>, vector<pair<int,int>>, greater<pair<int,int>>> pq;
+        priority_queue<pair<int,int>,vector<pair<int,int>>, greater<>> minHeap;
 
-        for(auto &it : mp){
-            pq.push({it.second, it.first});
+        for(auto &X : mp){
+            minHeap.push({X.second,X.first});
 
-            if(pq.size() > k){
-                pq.pop();
+            if(minHeap.size() > k){
+                minHeap.pop();
             }
         }
 
         vector<int> ans;
-        while(!pq.empty()){
-            ans.push_back(pq.top().second);
-            pq.pop();
-        }
 
+        while(!minHeap.empty()){
+            ans.push_back(minHeap.top().second);
+            minHeap.pop();
+        }
+        
         return ans;
     }
 };
