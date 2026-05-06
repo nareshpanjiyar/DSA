@@ -4,9 +4,9 @@ public:
 
         priority_queue<pair<int,vector<int>>> pq;
 
-        for(auto &p : points){
-            int dist = p[0] * p[0] + p[1] * p[1];
-            pq.push({dist,p});
+        for(auto &N : points){
+            int dist = N[0] * N[0] + N[1] * N[1];
+            pq.push({dist,N});
 
             if(pq.size() > k){
                 pq.pop();
@@ -14,6 +14,7 @@ public:
         }
 
         vector<vector<int>> ans;
+
         while(!pq.empty()){
             ans.push_back({pq.top().second});
             pq.pop();
